@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zurcher's Electrical & Electronics – Est. 1992</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #D71920;
+    --red-dark: #b01218;
+    --blue: #1B2A6B;
+    --blue-mid: #223399;
+    --blue-light: #2d45c5;
+    --white: #ffffff;
+    --off-white: #f5f5f5;
+    --gray: #888;
+    --light-gray: #e8e8e8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--blue);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo .z-accent {
+    color: var(--red);
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  .nav-fb {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.8) !important;
+  }
+
+  .nav-fb:hover { color: #1877F2 !important; }
+
+  .nav-cta {
+    background: var(--red);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--red-dark); color: white !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    padding-top: 64px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 41px
+      );
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-est {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-est::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    line-height: 0.95;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .hero-title .red { color: var(--red); }
+
+  .hero-subtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 40px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.7);
+    max-width: 440px;
+    margin-bottom: 48px;
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: white;
+    text-decoration: none;
+    padding: 16px 36px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+  }
+
+  .btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateX(4px);
+  }
+
+  .btn-secondary {
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+
+  /* Hero right – decorative electrical graphic */
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-graphic {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blue-mid) 0%, var(--blue) 100%);
+  }
+
+  .bolt-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.06;
+  }
+
+  .bolt-bg svg {
+    width: 90%;
+    height: 90%;
+  }
+
+  .hero-stats {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 80%;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 36px 28px;
+    transition: background 0.3s;
+  }
+
+  .stat-card:hover { background: rgba(255,255,255,0.09); }
+
+  .stat-card.accent {
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+
+  .stat-card.accent .stat-label { color: rgba(255,255,255,0.85); }
+
+  /* ===== DIAGONAL DIVIDER ===== */
+  .divider-red {
+    height: 80px;
+    background: var(--red);
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+    margin-top: -2px;
+  }
+
+  /* ===== INFO STRIP ===== */
+  .info-strip {
+    background: var(--red);
+    padding: 24px 80px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: white;
+  }
+
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .info-label {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+
+  .info-value {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    padding: 100px 80px;
+    background: var(--off-white);
+  }
+
+  .section-header {
+    margin-bottom: 64px;
+  }
+
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    color: var(--blue);
+    line-height: 1;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: white;
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: transform 0.3s;
+    border-bottom: 4px solid transparent;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-bottom-color: var(--red);
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(27,42,107,0.15);
+  }
+
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--light-gray);
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    line-height: 1;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-num { color: rgba(215,25,32,0.1); }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 1.4rem;
+    color: white;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    transition: background 0.3s;
+  }
+
+  .service-card:hover .service-icon { background: var(--red); }
+
+  .service-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--blue);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  /* ===== ABOUT ===== */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 520px;
+  }
+
+  .about-left {
+    background: var(--blue);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-left::after {
+    content: 'Z';
+    position: absolute;
+    bottom: -60px;
+    right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22rem;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .about-left .section-title { color: white; }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.75);
+    margin-top: 24px;
+    max-width: 480px;
+  }
+
+  .about-right {
+    background: var(--red);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    color: white;
+  }
+
+  .feature-check {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .feature-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  /* ===== REVIEWS ===== */
+  .reviews {
+    padding: 100px 80px;
+    background: white;
+  }
+
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+
+  .rating-hero {
+    text-align: right;
+  }
+
+  .rating-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--blue);
+    line-height: 1;
+  }
+
+  .stars {
+    color: #f5a623;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .rating-count {
+    font-size: 0.8rem;
+    color: var(--gray);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .review-card {
+    background: var(--off-white);
+    padding: 36px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .review-card:hover {
+    border-top-color: var(--red);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+
+  .review-stars { color: #f5a623; font-size: 0.9rem; margin-bottom: 16px; }
+
+  .review-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--blue);
+  }
+
+  .reviewer-date {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    background: var(--blue);
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 80px,
+      rgba(255,255,255,0.02) 80px,
+      rgba(255,255,255,0.02) 81px
+    );
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact .section-title { color: white; margin-bottom: 40px; }
+
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    transition: background 0.2s;
+    color: white;
+  }
+
+  .contact-card:hover { background: rgba(255,255,255,0.12); }
+
+  .contact-card.highlight { background: var(--red); border-color: var(--red); }
+  .contact-card.highlight:hover { background: var(--red-dark); }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .contact-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* Map area */
+  .map-area {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    gap: 12px;
+    font-size: 2rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .map-placeholder-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .map-address-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: var(--red);
+    padding: 16px 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #0d1640;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: white;
+    letter-spacing: 2px;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+  }
+
+  .footer-badge {
+    background: var(--red);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    font-weight: 700;
+  }
+
+  /* ===== OPEN BADGE ===== */
+  .open-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+
+  .open-dot {
+    width: 8px;
+    height: 8px;
+    background: #4cde70;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  /* ===== HERO ANIMATE ===== */
+  .hero-left > * {
+    opacity: 0;
+    animation: slideUp 0.7s forwards;
+  }
+
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-left > *:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 32px; }
+    .info-strip { padding: 24px 32px; gap: 28px; }
+    .services { padding: 60px 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+    .about-left, .about-right { padding: 60px 32px; }
+    .reviews { padding: 60px 32px; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-header { flex-direction: column; gap: 24px; align-items: flex-start; }
+    .contact { padding: 60px 32px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="z-accent">Z</span>URCHER'S ELECTRICAL
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.facebook.com/profile.php?id=100057580354170" target="_blank" class="nav-fb">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a></li>
+    <li><a href="tel:0413732996" class="nav-cta">📞 Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-est">Est. 1992 · Port Elizabeth</div>
+    <h1 class="hero-title">
+      <span class="red">Z</span>URCHER'S<br>ELECTRICAL &amp;<br>ELECTRONICS
+    </h1>
+    <p class="hero-subtitle">Powering Gqeberha Since 1992</p>
+    <div class="open-badge">
+      <span class="open-dot"></span>
+      Open Now · Closes 5 PM
+    </div>
+    <p class="hero-desc">Industrial, commercial and domestic electrical installations and repairs. Specialists in backup generators, inverters and solar systems.</p>
+    <div class="hero-actions">
+      <a href="tel:0413732996" class="btn-primary">☎ 041 373 2996</a>
+      <a href="#services" class="btn-secondary">Our Services →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-graphic"></div>
+    <div class="bolt-bg">
+      <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="120,10 40,160 100,160 80,290 160,140 100,140" fill="white"/>
+      </svg>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card accent">
+        <div class="stat-num">4,817</div>
+        <div class="stat-label">Google Reviews</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">33+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Emergency Service</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">★4.8</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip" id="contact-strip">
+  <div class="info-item">
+    <div class="info-icon">📍</div>
+    <div>
+      <div class="info-label">Address</div>
+      <div class="info-value">51 Kempston Rd, Sidwell, Gqeberha 6001</div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">☎</div>
+    <div>
+      <div class="info-label">Phone</div>
+      <div class="info-value">041 373 2996</div>
+    </div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">🕐</div>
+    <div>
+      <div class="info-label">Hours</div>
+      <div class="info-value">Mon–Fri: 8am–5pm · 24h Emergency</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title">OUR SERVICES</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">⚡</div>
+      <div class="service-name">Industrial Electrical</div>
+      <p class="service-desc">Full industrial installations, maintenance and repairs for factories, warehouses and large-scale commercial operations across the Eastern Cape.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">🏢</div>
+      <div class="service-name">Commercial Installations</div>
+      <p class="service-desc">Comprehensive electrical solutions for offices, retail spaces and commercial buildings — from initial installation to ongoing maintenance.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">🏠</div>
+      <div class="service-name">Domestic Repairs</div>
+      <p class="service-desc">Trusted household electrical repairs and installations. Fault finding, rewiring, distribution boards, lighting and more.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">🔋</div>
+      <div class="service-name">Backup Generators</div>
+      <p class="service-desc">Supply and installation of backup generator systems. Stay powered during load-shedding with the right generator for your needs.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">🔌</div>
+      <div class="service-name">Inverter Systems</div>
+      <p class="service-desc">Sales and installation of inverter and battery backup solutions. Keep the lights on and critical equipment running without interruption.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">☀️</div>
+      <div class="service-name">Solar Systems</div>
+      <p class="service-desc">Expert solar panel installation and system design. Reduce electricity costs and move towards energy independence with a custom solar solution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="section-tag">Who We Are</div>
+    <h2 class="section-title">TRUSTED SINCE<br>1992</h2>
+    <p class="about-text">Zurcher's Electrical & Electronics has been delivering quality electrical services to Port Elizabeth and the greater Gqeberha region for over three decades. What started as a small local electrician has grown into one of the most trusted names in the Eastern Cape — backed by nearly 5,000 five-star Google reviews.</p>
+    <p class="about-text" style="margin-top: 16px;">We handle everything from a tripped circuit breaker to a full industrial installation, and our solar & backup power division is among the most experienced in the region.</p>
+  </div>
+  <div class="about-right">
+    <ul class="feature-list">
+      <li>
+        <div class="feature-check">✓</div>
+        <div>
+          <div class="feature-title">Licensed & Certified Electricians</div>
+          <div class="feature-desc">All work completed by fully qualified, certified professionals.</div>
+        </div>
+      </li>
+      <li>
+        <div class="feature-check">✓</div>
+        <div>
+          <div class="feature-title">24-Hour Emergency Response</div>
+          <div class="feature-desc">Electrical emergencies don't keep office hours — neither do we.</div>
+        </div>
+      </li>
+      <li>
+        <div class="feature-check">✓</div>
+        <div>
+          <div class="feature-title">Solar & Backup Power Specialists</div>
+          <div class="feature-desc">From generators to full off-grid solar — we design and install it all.</div>
+        </div>
+      </li>
+      <li>
+        <div class="feature-check">✓</div>
+        <div>
+          <div class="feature-title">Serving the Entire Eastern Cape</div>
+          <div class="feature-desc">Based in Gqeberha, available for projects across the region.</div>
+        </div>
+      </li>
+      <li>
+        <div class="feature-check">✓</div>
+        <div>
+          <div class="feature-title">4,817 Five-Star Google Reviews</div>
+          <div class="feature-desc">Our reputation speaks for itself — built one customer at a time.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div>
+      <div class="section-tag">Customer Feedback</div>
+      <h2 class="section-title">WHAT OUR CLIENTS SAY</h2>
+    </div>
+    <div class="rating-hero">
+      <div class="rating-num">4.8</div>
+      <div class="stars">★★★★★</div>
+      <div class="rating-count">4,817 Google Reviews</div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Absolutely outstanding service. The team arrived quickly, diagnosed the problem immediately and had everything fixed within the hour. Will definitely use Zurcher's again."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">TM</div>
+        <div>
+          <div class="reviewer-name">Thabo Mokoena</div>
+          <div class="reviewer-date">2 weeks ago</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Got my solar system installed last month. Professional, clean work and the team explained everything clearly. The system is working perfectly and saving us money every month."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">SV</div>
+        <div>
+          <div class="reviewer-name">Sandra van der Berg</div>
+          <div class="reviewer-date">1 month ago</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Used them for an emergency at our factory on a Saturday night. They showed up fast and got us back running. Incredible service, can't recommend them enough."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">RN</div>
+        <div>
+          <div class="reviewer-name">Riaan Nel</div>
+          <div class="reviewer-date">3 months ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag" style="color: rgba(255,255,255,0.6);">Get In Touch</div>
+      <h2 class="section-title">CONTACT<br>ZURCHER'S</h2>
+      <div class="contact-cards">
+        <a href="tel:0413732996" class="contact-card highlight">
+          <div class="contact-icon">☎</div>
+          <div>
+            <div class="contact-label">Call Us Now</div>
+            <div class="contact-value">041 373 2996</div>
+          </div>
+        </a>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Visit Us</div>
+            <div class="contact-value">51 Kempston Rd, Sidwell, Gqeberha 6001</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Business Hours</div>
+            <div class="contact-value">Mon–Fri 8am–5pm · 24h Emergency Line</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🚗</div>
+          <div>
+            <div class="contact-label">From City Centre</div>
+            <div class="contact-value">Approx. 19 minutes drive</div>
+          </div>
+        </div>
+        <a href="https://www.facebook.com/profile.php?id=100057580354170" target="_blank" class="contact-card" style="background:rgba(24,119,242,0.15);border-color:rgba(24,119,242,0.3);">
+          <div class="contact-icon" style="background:rgba(24,119,242,0.3);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Follow Us on Facebook</div>
+            <div class="contact-value">Zurcher's Electrical &rarr;</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="map-area">
+      <div style="font-size: 3rem;">📍</div>
+      <div class="map-placeholder-text">51 Kempston Road, Sidwell<br>Gqeberha · Port Elizabeth</div>
+      <div class="map-address-overlay">
+        📍 51 Kempston Rd, Sidwell, Gqeberha, 6001 — 19 min from city centre
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>Z</span>URCHER'S ELECTRICAL</div>
+  <div class="footer-copy">© 2024 Zurcher's Electrical & Electronics. Est. 1992 · Gqeberha, Eastern Cape.</div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="https://www.facebook.com/profile.php?id=100057580354170" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:1px;transition:color 0.2s;" onmouseover="this.style.color='#1877F2'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <div class="footer-badge">⚡ Est. 1992</div>
+  </div>
+</footer>
+
+</body>
+</html>
